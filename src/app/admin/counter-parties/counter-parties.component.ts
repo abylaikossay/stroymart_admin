@@ -6,6 +6,7 @@ import {AdditionalInfoMatDialogComponent} from './dialog/additional-info-mat-dia
 import {ActivatedRoute} from '@angular/router';
 import {PublicationsService} from '../../@core/services/publications.service';
 import {ReportService} from '../../@core/services/report.service';
+import {ThemePalette} from '@angular/material/core';
 
 @Component({
   selector: 'ngx-counter-parties',
@@ -13,9 +14,11 @@ import {ReportService} from '../../@core/services/report.service';
   styleUrls: ['./counter-parties.component.scss'],
 })
 export class CounterPartiesComponent implements OnInit {
+  color: ThemePalette = 'primary';
+  checked: false;
   dataSource: any;
   displayedColumns: string[] = ['image', 'createdAt', 'sendAt', 'status', 'receivers', 'autoSend', 'sendBtn'];
-  fileUrl = 'assets/pdf.jpeg';
+  fileUrl = 'assets/pdf.png';
   id: number;
   report: any;
   constructor(private dialogService: NbDialogService,
@@ -70,8 +73,8 @@ export class CounterPartiesComponent implements OnInit {
     console.log(report);
     const dialogRef = this.matDialog.open(AdditionalInfoMatDialogComponent, {
       data: this.id,
-      panelClass: 'additional-info-modal',
-      width: '80vw',
+      width: '100vw',
+      height: '100vh',
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);

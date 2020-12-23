@@ -59,7 +59,8 @@ export class RecipientsComponent implements OnInit {
     const dialogRef = this.matDialog.open(AdditionalInfoDialogComponent, {
       data: category,
       panelClass: 'additional-info-modal',
-      width: '80vw',
+      width: '100vw',
+      height: '100vh',
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getChosenCategories();
@@ -80,10 +81,11 @@ export class RecipientsComponent implements OnInit {
     const newCategoryDialog = this.matDialog.open(NewCategoryDialogComponent, {
       data: this.id,
       panelClass: 'additional-info-modal',
-      width: '80vw',
+      width: '100vw',
+      height: '100vh',
     });
     newCategoryDialog.afterClosed().subscribe(result => {
-        this.getCategories();
+      this.getCategories();
     });
   }
 

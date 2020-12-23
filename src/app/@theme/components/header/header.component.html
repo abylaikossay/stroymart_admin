@@ -1,38 +1,38 @@
-<div class="header-container">
-  <div class="logo-container">
-    <a class="logo" href="#" (click)="navigateHome()">
-      <nb-user
-        [onlyPicture]="userPictureOnly"
-        [name]="user?.name"
-        [picture]="user?.picture">
-      </nb-user>
-    </a>
+<div (click)="backHome()" style="margin-top: 10px" class="header-container">
+  <div class="header-name-container">
+    <nb-icon icon="arrow-ios-back-outline"> /</nb-icon>
+    <p>{{ user.name }}</p>
   </div>
 </div>
 
 <div class="header-container">
-    <nb-icon nbTooltip="Настройки" nbTooltipPlacement="bottom" icon="settings-outline"></nb-icon>
-  <div (click)="logout()" style="width: 23px;" nbTooltip="Выход" nbTooltipPlacement="bottom">
-    <svg class="svg-logout" width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18.0468 25.0168C16.4628 25.6705 14.7644 26.0047 13.0501 25.9999C11.3355 26.0047 9.63752 25.6705 8.05351 25.0168C6.46985 24.363 5.03167 23.4026 3.82322 22.1914C1.35853 19.7375 0 16.4735 0 13C0 9.52643 1.35853 6.26242 3.82322 3.80853C6.2865 1.35323 9.56319 1.90735e-06 13.0501 1.90735e-06C16.5371 1.90735e-06 19.8138 1.35323 22.2771 3.80853L20.2269 5.85075C18.3101 3.94146 15.7612 2.88857 13.0501 2.88857C10.3387 2.88857 7.79016 3.94146 5.87341 5.85075C3.95667 7.76012 2.89972 10.2992 2.89972 13C2.89972 15.7008 3.95667 18.2398 5.87341 20.1492C7.79016 22.0585 10.3387 23.1114 13.0501 23.1114C15.7612 23.1114 18.3101 22.0585 20.2269 20.1492L22.2771 22.1914C21.0683 23.4026 19.6304 24.363 18.0468 25.0168Z" fill="#6BCCF9"/>
-      <path d="M21.7507 7.22284L29 13L21.7507 18.7771V14.4443L8.70198 14.4443V11.5557L21.7507 11.5557L21.7507 7.22284Z" fill="#6BCCF9"/>
+  <nb-icon
+    nbTooltip="Настройки"
+    nbTooltipPlacement="bottom"
+    icon="settings-outline"
+  ></nb-icon>
+  <div
+    (click)="logout()"
+    style="width: 23px"
+    nbTooltip="Выход"
+    nbTooltipPlacement="bottom"
+  >
+    <svg
+      class="svg-logout"
+      width="29"
+      height="26"
+      viewBox="0 0 29 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M18.0468 25.0168C16.4628 25.6705 14.7644 26.0047 13.0501 25.9999C11.3355 26.0047 9.63752 25.6705 8.05351 25.0168C6.46985 24.363 5.03167 23.4026 3.82322 22.1914C1.35853 19.7375 0 16.4735 0 13C0 9.52643 1.35853 6.26242 3.82322 3.80853C6.2865 1.35323 9.56319 1.90735e-06 13.0501 1.90735e-06C16.5371 1.90735e-06 19.8138 1.35323 22.2771 3.80853L20.2269 5.85075C18.3101 3.94146 15.7612 2.88857 13.0501 2.88857C10.3387 2.88857 7.79016 3.94146 5.87341 5.85075C3.95667 7.76012 2.89972 10.2992 2.89972 13C2.89972 15.7008 3.95667 18.2398 5.87341 20.1492C7.79016 22.0585 10.3387 23.1114 13.0501 23.1114C15.7612 23.1114 18.3101 22.0585 20.2269 20.1492L22.2771 22.1914C21.0683 23.4026 19.6304 24.363 18.0468 25.0168Z"
+        fill="#6BCCF9"
+      />
+      <path
+        d="M21.7507 7.22284L29 13L21.7507 18.7771V14.4443L8.70198 14.4443V11.5557L21.7507 11.5557L21.7507 7.22284Z"
+        fill="#6BCCF9"
+      />
     </svg>
   </div>
-  
-<!--  <nb-icon (click)="logout()" icon="log-out" nbTooltip="Выход" nbTooltipPlacement="bottom"></nb-icon>-->
-  <!--  <nb-actions size="small">-->
-
-  <!--&lt;!&ndash;    <nb-action class="control-item">&ndash;&gt;-->
-  <!--&lt;!&ndash;      <nb-search type="rotate-layout"></nb-search>&ndash;&gt;-->
-  <!--&lt;!&ndash;    </nb-action>&ndash;&gt;-->
-  <!--&lt;!&ndash;    <nb-action class="control-item" icon="email-outline"></nb-action>&ndash;&gt;-->
-  <!--    <nb-action class="control-item" icon="settings-outline"></nb-action>-->
-  <!--    <nb-action class="user-action" *nbIsGranted="['view', 'user']" >-->
-  <!--      <nb-user [nbContextMenu]="userMenu"-->
-  <!--               [onlyPicture]="userPictureOnly"-->
-  <!--               [name]="user?.name"-->
-  <!--               [picture]="user?.picture">-->
-  <!--      </nb-user>-->
-  <!--    </nb-action>-->
-  <!--  </nb-actions>-->
 </div>

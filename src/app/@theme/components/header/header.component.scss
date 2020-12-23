@@ -13,6 +13,19 @@
     width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
   }
 
+  .header-name-container {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    nb-icon {
+      color: #9a9b9c !important;
+      margin-right: 1px;
+    }
+    p {
+      color: #60afef;
+    }
+  }
+
   nb-action {
     height: auto;
     display: flex;
@@ -55,8 +68,8 @@
     .logo {
       padding: 0 1.25rem;
       font-size: 1.75rem;
-      @include nb-ltr(border-left, 1px solid nb-theme(divider-color));
-      @include nb-rtl(border-right, 1px solid nb-theme(divider-color));
+      //@include nb-ltr(border-left, 1px solid nb-theme(divider-color));
+      //@include nb-rtl(border-right, 1px solid nb-theme(divider-color));
       white-space: nowrap;
       text-decoration: none;
     }

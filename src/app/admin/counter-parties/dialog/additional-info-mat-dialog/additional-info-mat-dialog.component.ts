@@ -8,7 +8,7 @@ import {CategoryService} from '../../../../@core/services/category.service';
   styleUrls: ['./additional-info-mat-dialog.component.scss'],
 })
 export class AdditionalInfoMatDialogComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'bin', 'email', 'phone'];
+  displayedColumns: string[] = ['name', 'bin', 'email', 'phone'];
   categories: any;
 
   constructor(

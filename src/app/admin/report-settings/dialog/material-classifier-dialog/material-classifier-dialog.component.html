@@ -1,149 +1,154 @@
 <nb-card class="bg-white">
-	<nb-card-header class="addition-info-header d-flex justify-content-between">
-		Классификатор материалов
-		<button (click)="closeDialog()" ghost nbButton>
-			<nb-icon icon="close-outline"></nb-icon>
-		</button>
-	</nb-card-header>
-	<nb-card-body class="classifier-card-body">
-		<div class="d-flex justify-content-between" style="max-height: 100%">
-			<div class="d-flex justify-content-start">
-				<div class="select-div">
-				<nb-card class="card-list">
-					<nb-card-header class="card-header-otdels d-flex justify-content-between">
-						<span>Отдел</span>
-						<nb-icon icon="arrow-ios-downward"></nb-icon>
-					</nb-card-header>
-					<nb-card-body class="list-card-body">
-					<nb-list>
-						<nb-list-item (click)="changeOtdel(otdel)" *ngFor="let otdel of otdels" class="d-flex justify-content-between otdel-list-item {{otdel.isSelected ? 'selected' : ''}}">
+  <nb-card-header class="addition-info-header d-flex justify-content-between">
+    Классификатор материалов
+    <button (click)="closeDialog()" ghost nbButton>
+      <nb-icon icon="close-outline"></nb-icon>
+    </button>
+  </nb-card-header>
+  <nb-card-body class="classifier-card-body">
+    <div class="d-flex justify-content-between" style="max-height: 100%">
+      <div class="d-flex justify-content-start">
+        <div class="select-div">
+          <nb-card class="card-list">
+            <nb-card-header class="card-header-otdels d-flex justify-content-between">
+              <span>Отдел</span>
+              <nb-icon icon="arrow-ios-downward"></nb-icon>
+            </nb-card-header>
+            <nb-card-body class="list-card-body">
+              <nb-list>
+                <nb-list-item (click)="changeOtdel(otdel)" *ngFor="let otdel of otdels"
+                              class="d-flex justify-content-between otdel-list-item {{otdel.isSelected ? 'selected' : ''}}">
 								<span class="otdel-name">
 									{{ otdel?.mcName }}
 								</span>
-							<span class="count-number">
+                  <span class="count-number">
                   {{ otdel?.mcCount }}
                 </span>
-						</nb-list-item>
-					</nb-list>
-					</nb-card-body>
-				</nb-card>
-			</div>
-				<div class="select-div">
-					<nb-card>
-						<nb-card-header class="card-header-otdels d-flex justify-content-between">
-							<span>Раздел</span>
-							<nb-icon icon="arrow-ios-downward"></nb-icon>
-						</nb-card-header>
-						<nb-card-body class="list-card-body">
-						<nb-list>
-							<nb-list-item (click)="changeRasdel(rasdel)" *ngFor="let rasdel of rasdels" class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
+                </nb-list-item>
+              </nb-list>
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="select-div">
+          <nb-card>
+            <nb-card-header class="card-header-otdels d-flex justify-content-between">
+              <span>Раздел</span>
+              <nb-icon icon="arrow-ios-downward"></nb-icon>
+            </nb-card-header>
+            <nb-card-body class="list-card-body">
+              <nb-list>
+                <nb-list-item (click)="changeRasdel(rasdel)" *ngFor="let rasdel of rasdels"
+                              class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
 								<span class="otdel-name">
 									{{ rasdel?.mcName }}
 								</span>
-								<span class="count-number">
+                  <span class="count-number">
                   {{ rasdel?.mcCount }}
                 </span>
-							</nb-list-item>
-						</nb-list>
-						</nb-card-body>
-					</nb-card>
-				</div>
-				<div class="select-div">
-				<nb-card>
-					<nb-card-header class="card-header-otdels d-flex justify-content-between">
-						<span>Подраздел</span>
-						<nb-icon icon="arrow-ios-downward"></nb-icon>
-					</nb-card-header>
-					<nb-card-body class="list-card-body">
-					<nb-list>
-						<nb-list-item (click)="changePodrazdel(rasdel)" *ngFor="let rasdel of podrasdels" class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
+                </nb-list-item>
+              </nb-list>
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="select-div">
+          <nb-card>
+            <nb-card-header class="card-header-otdels d-flex justify-content-between">
+              <span>Подраздел</span>
+              <nb-icon icon="arrow-ios-downward"></nb-icon>
+            </nb-card-header>
+            <nb-card-body class="list-card-body">
+              <nb-list>
+                <nb-list-item (click)="changePodrazdel(rasdel)" *ngFor="let rasdel of podrasdels"
+                              class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
 								<span class="otdel-name">
 									{{ rasdel?.mcName }}
 								</span>
-							<span class="count-number">
+                  <span class="count-number">
                   {{ rasdel?.mcCount }}
                 </span>
-						</nb-list-item>
-					</nb-list>
-					</nb-card-body>
-				</nb-card>
-			</div>
-				<div class="select-div">
-					<nb-card>
-						<nb-card-header class="card-header-otdels d-flex justify-content-between">
-							<span>Группа</span>
-							<nb-icon icon="arrow-ios-downward"></nb-icon>
-						</nb-card-header>
-						<nb-card-body class="list-card-body">
-						<nb-list>
-							<nb-list-item (click)="changeGruppa(rasdel)" *ngFor="let rasdel of gruppas" class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
+                </nb-list-item>
+              </nb-list>
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="select-div">
+          <nb-card>
+            <nb-card-header class="card-header-otdels d-flex justify-content-between">
+              <span>Группа</span>
+              <nb-icon icon="arrow-ios-downward"></nb-icon>
+            </nb-card-header>
+            <nb-card-body class="list-card-body">
+              <nb-list>
+                <nb-list-item (click)="changeGruppa(rasdel)" *ngFor="let rasdel of gruppas"
+                              class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
 								<span class="otdel-name">
 									{{ rasdel?.mcName }}
 								</span>
-								<span class="count-number">
+                  <span class="count-number">
                   {{ rasdel?.mcCount }}
                 </span>
-							</nb-list-item>
-						</nb-list>
-						</nb-card-body>
-					</nb-card>
-				</div>
-				<div class="select-div">
-					<nb-card>
-						<nb-card-header class="card-header-otdels d-flex justify-content-between">
-							<span>Подгруппа</span>
-							<nb-icon icon="arrow-ios-downward"></nb-icon>
-						</nb-card-header>
-						<nb-card-body class="list-card-body">
-						<nb-list>
-							<nb-list-item (click)="changePodgruppa(rasdel)" *ngFor="let rasdel of podgruppas" class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
+                </nb-list-item>
+              </nb-list>
+            </nb-card-body>
+          </nb-card>
+        </div>
+        <div class="select-div">
+          <nb-card>
+            <nb-card-header class="card-header-otdels d-flex justify-content-between">
+              <span>Подгруппа</span>
+              <nb-icon icon="arrow-ios-downward"></nb-icon>
+            </nb-card-header>
+            <nb-card-body class="list-card-body">
+              <nb-list>
+                <nb-list-item (click)="changePodgruppa(rasdel)" *ngFor="let rasdel of podgruppas"
+                              class="d-flex justify-content-between otdel-list-item {{rasdel.isSelected ? 'selected' : ''}}">
 								<span class="otdel-name">
 									{{ rasdel?.mcName }}
 								</span>
-								<span class="count-number">
+                  <span class="count-number">
                   {{ rasdel?.mcCount }}
                 </span>
-							</nb-list-item>
-						</nb-list>
-						</nb-card-body>
-					</nb-card>
-				</div>
-			</div>
-			<button [disabled]="!chosenMaterial" (click)="openMaterialsDialog()" style="width: 190px" nbButton
-			        status="primary"
-			        class="d-flex materials-button justify-content-between">
-				<span>Материалы</span>
-				<span class="total-count-buton">{{this.totalCount}}</span>
-			</button>
-		</div>
-	</nb-card-body>
-	<nb-card-footer>
-		<div class="d-flex justify-content-between">
-			<div class="border-right-custom">
-				<div class="mb-2">Выбранные материалы</div>
-				<button (click)="clearFilter()" nbButton outline status="primary">
-					Очистить фильтр
-				</button>
-			</div>
-			<div class="main-materials-div d-flex justify-content-start">
-				<div *ngFor="let material of materials; let i = index" class="button-height-div">
-					<button nbTooltip="{{material.mtName}}" class="material-button" nbButton outline status="primary">
-						{{material.mtName}}
-					</button>
-					<button nbButton status="primary" outline class="remove-material-icon">
-						<nb-icon (click)="removeFromList(material, i)" class="close-icon" icon="close-outline"></nb-icon>
-					</button>
-				</div>
-			</div>
-			<div class="border-left-custom">
-				<div class="row mb-2">
-					<button [disabled]="materials.length === 0" (click)="submitMaterials()" nbButton status="primary">Применить
-					</button>
-				</div>
-				<div class="row">
-					<button nbButton outline status="primary" (click)="closeDialog()">Отменить</button>
-				</div>
-			</div>
-		</div>
-	</nb-card-footer>
+                </nb-list-item>
+              </nb-list>
+            </nb-card-body>
+          </nb-card>
+        </div>
+      </div>
+      <button [disabled]="!chosenMaterial" (click)="openMaterialsDialog()" style="width: 190px" nbButton
+              status="primary"
+              class="d-flex materials-button justify-content-between">
+        <span>Материалы</span>
+        <span class="total-count-buton">{{this.totalCount}}</span>
+      </button>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="d-flex justify-content-between">
+      <div class="border-right-custom">
+        <div class="mb-2">Выбранные материалы</div>
+        <button (click)="clearFilter()" class="outline-figma-button" nbButton outline status="primary">
+          Очистить фильтр
+        </button>
+      </div>
+      <div class="main-materials-div d-flex justify-content-start">
+        <div *ngFor="let material of materials; let i = index" class="button-height-div">
+          <button nbTooltip="{{material.mtName}}" class="material-button" nbButton outline status="primary">
+            {{material.mtName}}
+          </button>
+          <button nbButton status="primary" outline class="remove-material-icon">
+            <nb-icon (click)="removeFromList(material, i)" class="close-icon" icon="close-outline"></nb-icon>
+          </button>
+        </div>
+      </div>
+      <div class="border-left-custom">
+        <div class="row mb-2">
+          <button [disabled]="materials.length === 0" (click)="submitMaterials()" nbButton status="primary">Применить
+          </button>
+        </div>
+        <div class="row">
+          <button nbButton outline class="outline-figma-button" status="primary" (click)="closeDialog()">Отменить</button>
+        </div>
+      </div>
+    </div>
+  </nb-card-footer>
 </nb-card>

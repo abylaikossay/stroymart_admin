@@ -1,149 +1,133 @@
 <nb-card class="main-card" [nbSpinner]="isLoading"
          nbSpinnerSize="giant" nbSpinnerStatus="primary">
-	<nb-card-header *ngIf="pageLoaded">
-		<div class="d-flex">
-			<div class="d-flex w-100 align-items-center justify-content-center">
-				Настройка публикации: "{{report.name}}"
-			</div>
-			<button nbButton ghost [routerLink]="'/admin'">
-				<nb-icon icon="close-outline"></nb-icon>
-			</button>
-		</div>
-		<hr>
-		<div class="d-flex justify-content-between align-items-center overflow-auto">
-			<div class="mr-2">
-				<div class="mb-3">
-					Дата недели создании отчета
-				</div>
-				<button nbButton size="small" (click)="choseDates(dateDialog)">Выбрать день недели</button>
-			</div>
-			<div class="mr-2">
-				<div class="mb-3">Автоотправка</div>
-				<nb-toggle (change)="changed()" [(ngModel)]="report.autoSending" status="primary"></nb-toggle>
-			</div>
-			<div class="mr-2">
+  <nb-card-header *ngIf="pageLoaded">
+    <div class="d-flex p-2">
+      <div class="d-flex w-100 align-items-center justify-content-center">
+        Настройка публикации отчетов
+      </div>
+      <img src="assets/Х.svg" [routerLink]="'/admin'" class="close-button-image">
+<!--            <button nbButton ghost [routerLink]="'/admin'">-->
+<!--      				<nb-icon icon="close-outline"></nb-icon>-->
+<!--      			</button>-->
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between align-items-center overflow-auto header-container">
+      <div class="d-flex justify-content-between">
+        <div class="mr-2">
+          <div class="mb-3 grey-header-title">
+            Дата недели создании отчета
+          </div>
+          <button nbButton size="small" class="report-header-btn" (click)="choseDates(dateDialog)">Выбрать день недели</button>
+        </div>
+        <div class="mr-2 grey-header-title">
+          <div class="mb-3">Автоотправка</div>
+          <mat-slide-toggle
+            [color]="color"
+            (change)="changed()"
+            [(ngModel)]="report.autoSending"
+          ></mat-slide-toggle>
+<!--          <nb-toggle (change)="changed()" [(ngModel)]="report.autoSending" status="primary"></nb-toggle>-->
+        </div>
+        <div class="mr-2 white-header-title">
         <span>
           Отчет отправится через:
         </span>
-				<br>
-				<div class="d-flex justify-content-between">
-					<div>
-						<button nbButton>{{expirationTime?.day}}</button>
-						<br>
-						Дней
-					</div>
-					<span class="dots-span">:</span>
-					<div>
-						<button nbButton>{{expirationTime?.hour}}</button>
-						<br>
-						Часов
-					</div>
-					<span class="dots-span">:</span>
-					<div>
-						<button nbButton>{{expirationTime?.minute}}</button>
-						<br>
-						Минут
-					</div>
-					<span class="dots-span">:</span>
-					<div>
-						<button nbButton>{{expirationTime?.second}}</button>
-						<br>
-						Секунд
-					</div>
-				</div>
-			</div>
-			<div class="mr-2">
-				<button class="header-buttons" (click)="openMatClassifier(report)" nbButton>Фильтр по материалам</button>
-			</div>
-			<div class="mr-2">
-				<button class="header-buttons" [routerLink]="'/admin/recipients/' + report.id" nbButton>Получатели</button>
-			</div>
-			<div>
-				<button class="header-buttons" *ngIf="report.publicate" (click)="updatePublicate(false)" nbButton
-				        status='danger'>
-					Остановить публикацию
-				</button>
-				<button class="header-buttons" *ngIf="!report.publicate" (click)="updatePublicate(true)" nbButton
-				        status="primary">
-					Восстановить публикацию
-				</button>
-			</div>
+          <br>
+          <div class="d-flex justify-content-between">
+            <div class="time-text">
+              <button class="time-btn" nbButton>{{expirationTime?.day}}</button>
+              <br>
+              дни
+            </div>
+            <span class="dots-span">:</span>
+            <div class="time-text">
+              <button class="time-btn" nbButton>{{expirationTime?.hour}}</button>
+              <br>
+              часы
+            </div>
+            <span class="dots-span">:</span>
+            <div class="time-text">
+              <button class="time-btn" nbButton>{{expirationTime?.minute}}</button>
+              <br>
+              минуты
+            </div>
+            <span class="dots-span">:</span>
+            <div class="time-text">
+              <button class="time-btn" nbButton>{{expirationTime?.second}}</button>
+              <br>
+              секунды
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="mr-2">
+          <button class="header-buttons" class="report-header-btn" (click)="openMatClassifier(report)" nbButton>Фильтр по материалам</button>
+        </div>
+        <div class="mr-2">
+          <button class="header-buttons" class="report-header-btn" [routerLink]="'/admin/recipients/' + report.id" nbButton>Получатели</button>
+        </div>
+        <div>
+          <button class="header-buttons" *ngIf="report.publicate" (click)="updatePublicate(false)" nbButton
+                  status='danger'>
+            Остановить публикацию
+          </button>
+          <button class="header-buttons" *ngIf="!report.publicate" (click)="updatePublicate(true)" nbButton
+                  status="primary">
+            Восстановить публикацию
+          </button>
+        </div>
+      </div>
 
-		</div>
 
-	</nb-card-header>
-	<nb-card-body>
-		<as-split direction="horizontal">
-			<as-split-area [size]="60">
-				<pdf-viewer [src]="pdfSrc"
-				            [render-text]="true"
-				            [(page)]="page"
-				            [stick-to-page]="true"
-				            (after-load-complete)="afterLoadComplete($event)"
-				></pdf-viewer>
-			</as-split-area>
-			<as-split-area [size]="40">
-				<div class="row d-flex justify-content-between ml-3">
-					<div class="page-col-class" *ngFor="let pdfPage of pdfPagesList">
-						<pdf-viewer [src]="pdfSrc"
-						            (click)="goToPdfPage(pdfPage)"
-						            [render-text]="true"
-						            [show-all]="false"
-						            class="pdf-small-page-view"
-						            [page]="pdfPage.pageNumber"
-						            [zoom]="0.2"
-						            style="display: block;"
-						></pdf-viewer>
+    </div>
 
-						<span class="page-number">{{pdfPage.pageNumber}}</span>
-					</div>
-				</div>
-			</as-split-area>
-		</as-split>
+  </nb-card-header>
+  <nb-card-body>
+    <as-split direction="horizontal">
+      <as-split-area [size]="60" class="pr-3">
+        <pdf-viewer [src]="pdfSrc"
+                    [render-text]="true"
+                    [(page)]="page"
+                    [stick-to-page]="true"
+                    (after-load-complete)="afterLoadComplete($event)"
+        ></pdf-viewer>
+      </as-split-area>
+      <as-split-area [size]="40">
+        <div class="row d-flex justify-content-between ml-3">
+          <div class="page-col-class" *ngFor="let pdfPage of pdfPagesList">
+            <pdf-viewer [src]="pdfSrc"
+                        (click)="goToPdfPage(pdfPage)"
+                        [render-text]="true"
+                        [show-all]="false"
+                        class="pdf-small-page-view"
+                        [page]="pdfPage.pageNumber"
+                        [zoom]="0.2"
+                        style="display: block;"
+            ></pdf-viewer>
 
-<!--		<div class="wrapper">-->
-<!--			<div class="box">-->
-<!--				<pdf-viewer [src]="pdfSrc"-->
-<!--				            [render-text]="true"-->
-<!--				            style="display: block;"-->
-<!--				            [(page)]="page"-->
-<!--				            [stick-to-page]="true"-->
-<!--				            (after-load-complete)="afterLoadComplete($event)"-->
-<!--				></pdf-viewer>-->
-<!--			</div>-->
-<!--			<div class="handler"></div>-->
-<!--			<div class="box" style="width: 40%">-->
-<!--				<div class="row d-flex justify-content-between">-->
-<!--					<div class="page-col-class" *ngFor="let pdfPage of pdfPagesList">-->
-<!--						<pdf-viewer [src]="pdfSrc"-->
-<!--						            (click)="goToPdfPage(pdfPage)"-->
-<!--						            [render-text]="true"-->
-<!--						            [show-all]="false"-->
-<!--						            class="pdf-small-page-view"-->
-<!--						            [page]="pdfPage.pageNumber"-->
-<!--						            [zoom]="0.2"-->
-<!--						            style="display: block;"-->
-<!--						></pdf-viewer>-->
-<!--						-->
-<!--						<span class="page-number">{{pdfPage.pageNumber}}</span>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-	</nb-card-body>
+            <span class="page-number">{{pdfPage.pageNumber}}</span>
+          </div>
+        </div>
+      </as-split-area>
+    </as-split>
+
+
+   </nb-card-body>
 
 </nb-card>
 
-<div class="test-class"></div>
 <ng-template #dateDialog let-data let-ref="dialogRef">
-	<nb-card class="chose-date-card">
-		<nb-card-body>
-			<div class="d-flex justify-content-end">
-				<button nbButton ghost>
-					<nb-icon (click)="cancelTime(ref)" icon="close-outline"></nb-icon>
-				</button>
-			</div>
-			<div class="row justify-content-between">
+  <nb-card class="chose-date-card">
+    <nb-card-body>
+      <div class="d-flex justify-content-end pb-3">
+        <img src="assets/Х.svg" (click)="cancelTime(ref)" class="close-button-image">
+
+<!--        <button nbButton ghost>-->
+<!--          <nb-icon (click)="cancelTime(ref)" icon="close-outline"></nb-icon>-->
+<!--        </button>-->
+      </div>
+      <div class="row justify-content-between">
         <div class="d-flex">
           <nb-select [(ngModel)]="reportHours">
             <nb-option *ngFor="let hour of hoursList" value="{{hour}}">{{hour}}</nb-option>
@@ -153,35 +137,56 @@
             <nb-option *ngFor="let minute of minutesList" value="{{minute}}">{{minute}}</nb-option>
           </nb-select>
         </div>
-				<button *ngIf="report.generateInMonday" (click)="report.generateInMonday = false" nbButton class="day-chosen-btn" status="primary">ПН
-				</button>
-				<button *ngIf="!report.generateInMonday" (click)="report.generateInMonday = true" class="day-chosen-btn" nbButton>ПН</button>
-				<button *ngIf="report.generateInTuesday" (click)="report.generateInTuesday = false" nbButton class="day-chosen-btn" status="primary">ВТ
-				</button>
-				<button *ngIf="!report.generateInTuesday" (click)="report.generateInTuesday = true" class="day-chosen-btn" nbButton>ВТ</button>
-				<button *ngIf="report.generateInWednesday" (click)="report.generateInWednesday = false" class="day-chosen-btn" nbButton
-				        status="primary">СР
-				</button>
-				<button *ngIf="!report.generateInWednesday" (click)="report.generateInWednesday = true" class="day-chosen-btn" nbButton>СР</button>
-				<button *ngIf="report.generateInThursday" (click)="report.generateInThursday = false" class="day-chosen-btn" nbButton status="primary">
-					ЧТ
-				</button>
-				<button *ngIf="!report.generateInThursday" (click)="report.generateInThursday = true" class="day-chosen-btn" nbButton>ЧТ</button>
-				<button *ngIf="report.generateInFriday" (click)="report.generateInFriday = false" class="day-chosen-btn" nbButton status="primary">ПТ
-				</button>
-				<button *ngIf="!report.generateInFriday" (click)="report.generateInFriday = true" class="day-chosen-btn" nbButton>ПТ</button>
-				<button *ngIf="report.generateInSaturday" (click)="report.generateInSaturday = false" class="day-chosen-btn" nbButton status="primary">
-					СБ
-				</button>
-				<button *ngIf="!report.generateInSaturday" (click)="report.generateInSaturday = true" class="day-chosen-btn" nbButton>СБ</button>
-				<button *ngIf="report.generateInSunday" (click)="report.generateInSunday = false" class="day-chosen-btn" nbButton status="primary">ВС
-				</button>
-				<button *ngIf="!report.generateInSunday" (click)="report.generateInSunday = true" class="day-chosen-btn" nbButton>ВС</button>
-			</div>
-		</nb-card-body>
-		<nb-card-footer class="d-flex justify-content-center">
-			<button nbButton (click)="changeGenerateDays(ref)" class="mr-5" status="primary">Применить</button>
-			<button nbButton (click)="cancelTime(ref)">Отменить</button>
-		</nb-card-footer>
-	</nb-card>
+        <button *ngIf="report.generateInMonday" (click)="report.generateInMonday = false" nbButton
+                class="day-chosen-btn" status="primary">ПН
+        </button>
+        <button *ngIf="!report.generateInMonday" (click)="report.generateInMonday = true" class="day-chosen-btn"
+                nbButton>ПН
+        </button>
+        <button *ngIf="report.generateInTuesday" (click)="report.generateInTuesday = false" nbButton
+                class="day-chosen-btn" status="primary">ВТ
+        </button>
+        <button *ngIf="!report.generateInTuesday" (click)="report.generateInTuesday = true" class="day-chosen-btn"
+                nbButton>ВТ
+        </button>
+        <button *ngIf="report.generateInWednesday" (click)="report.generateInWednesday = false" class="day-chosen-btn"
+                nbButton
+                status="primary">СР
+        </button>
+        <button *ngIf="!report.generateInWednesday" (click)="report.generateInWednesday = true" class="day-chosen-btn"
+                nbButton>СР
+        </button>
+        <button *ngIf="report.generateInThursday" (click)="report.generateInThursday = false" class="day-chosen-btn"
+                nbButton status="primary">
+          ЧТ
+        </button>
+        <button *ngIf="!report.generateInThursday" (click)="report.generateInThursday = true" class="day-chosen-btn"
+                nbButton>ЧТ
+        </button>
+        <button *ngIf="report.generateInFriday" (click)="report.generateInFriday = false" class="day-chosen-btn"
+                nbButton status="primary">ПТ
+        </button>
+        <button *ngIf="!report.generateInFriday" (click)="report.generateInFriday = true" class="day-chosen-btn"
+                nbButton>ПТ
+        </button>
+        <button *ngIf="report.generateInSaturday" (click)="report.generateInSaturday = false" class="day-chosen-btn"
+                nbButton status="primary">
+          СБ
+        </button>
+        <button *ngIf="!report.generateInSaturday" (click)="report.generateInSaturday = true" class="day-chosen-btn"
+                nbButton>СБ
+        </button>
+        <button *ngIf="report.generateInSunday" (click)="report.generateInSunday = false" class="day-chosen-btn"
+                nbButton status="primary">ВС
+        </button>
+        <button *ngIf="!report.generateInSunday" (click)="report.generateInSunday = true" class="day-chosen-btn"
+                nbButton>ВС
+        </button>
+      </div>
+    </nb-card-body>
+    <nb-card-footer class="d-flex justify-content-center">
+      <button nbButton (click)="changeGenerateDays(ref)" class="mr-5" status="primary">Применить</button>
+      <button nbButton class="transparent-button" (click)="cancelTime(ref)">Отменить</button>
+    </nb-card-footer>
+  </nb-card>
 </ng-template>

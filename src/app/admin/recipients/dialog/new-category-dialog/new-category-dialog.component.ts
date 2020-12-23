@@ -34,7 +34,7 @@ export class NewCategoryDialogComponent implements OnInit {
   closeDialog() {
     console.log(this.category);
     if (this.category !== null) {
-      this.categoryService.deleteCategory(this.category.id).subscribe( response => {
+      this.categoryService.deleteCategory(this.category.id).subscribe(response => {
         console.log(response);
       }, error => {
         console.error(error);
@@ -47,13 +47,13 @@ export class NewCategoryDialogComponent implements OnInit {
   saveCategory() {
     if (this.category !== null) {
       const arr = [];
-      this.receivers.forEach( element => {
+      this.receivers.forEach(element => {
         arr.push(this.contractorService.updateContractor(element).toPromise().then());
       });
       // @ts-ignore
-      Promise.allSettled(arr).then(resp =>  {
+      Promise.allSettled(arr).then(resp => {
         console.log(resp);
-        resp.forEach( element => {
+        resp.forEach(element => {
           if (element.status === 'rejected') {
             this.toastService.danger('Ошибка');
             throw new Error('Ошибка');
@@ -95,6 +95,8 @@ export class NewCategoryDialogComponent implements OnInit {
         panelClass: 'additional-info-modal',
         data: {element: response, type: 'new'},
         width: '70vw',
+        maxWidth: '100vw',
+
       });
       addInfoDialog.afterClosed().subscribe(result => {
         if (typeof result === 'object') {

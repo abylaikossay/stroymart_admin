@@ -12,7 +12,7 @@ export const environment = {
   production: false,
   // apiUrl: 'http://192.168.1.36:9090',
   // apiUrl: 'http://82.200.167.74:9090',
-  apiUrl: 'http://localhost:9090',
+  apiUrl: 'http://172.20.21.198:9090',
   imageUrl: '',
   tokenPrefix: 'Bearer ',
   apiToken: 'apiToken',

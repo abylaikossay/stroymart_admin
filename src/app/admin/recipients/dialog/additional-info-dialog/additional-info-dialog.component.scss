@@ -1,5 +1,11 @@
 .addition-info-header {
   background-color: #02344f;
+  max-width: 100vw;
+
+}
+
+.additional-info-modal {
+  max-width: 100vw;
 }
 
 table {
@@ -12,19 +18,40 @@ table {
   & th {
     color: black;
   }
+
+  tbody tr th:nth-child(2),
+  thead tr th:nth-child(2) {
+    width: 300px;
+  }
 }
+
 .category-card-header {
   background-color: #e8f2fe;
   color: #02344f;
   align-items: center;
 }
+
 .edit-category-btn {
   cursor: pointer;
 }
-.category-card-body{
+
+.category-card-body {
   padding: 0 !important;
 }
+
+nb-card {
+  margin-bottom: 0 !important;
+  height: 100% !important;
+
+  nb-card-footer {
+    justify-self: flex-end;
+  }
+}
+
 [nbInput] {
   color: #000000 !important;
   background-color: #ffffff;
+}
+.wider-column {
+  flex: 0 0 75px;
 }

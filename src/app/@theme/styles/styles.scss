@@ -28,14 +28,16 @@
   @include nb-overrides();
 }
 
-.material-classifier-dialog-class {
-  background-color: #222b45;
-}
 
 .mat-dialog-container {
   padding: 0 !important;
 }
 
 :root {
-  font-family: Roboto !important;
+  --color-primary: #2179db !important;
+  --font-family: Roboto !important;
+}
+
+.hex-bg {
+  background-color: var(--color-primary);
 }

@@ -6,4 +6,11 @@ import {Component} from '@angular/core';
   templateUrl: './one-column.layout.html',
 })
 export class OneColumnLayoutComponent {
+  shouldRenderHeader() {
+    if (window.location.pathname.includes('report-settings') || window.location.pathname.includes('recipients')) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

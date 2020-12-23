@@ -12,7 +12,7 @@ import {fromEvent, Subscription} from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   dataSource: any;
-  fileUrl = 'assets/pdf.jpeg';
+  fileUrl = 'assets/pdf.png';
   displayedColumns: string[] = ['image', 'name', 'amount', 'status', 'dates'];
 
 

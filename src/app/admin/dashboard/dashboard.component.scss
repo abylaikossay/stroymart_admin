@@ -8,7 +8,19 @@ table {
   }
 
   & th {
+    width: 150px;
     color: #ffffff;
+    &:nth-child(2) {
+      width: 40%;
+    }
+  }
+  tr,
+  th,
+  td {
+    width: 150px;
+    &:nth-child(2) {
+      width: 300px;
+    }
   }
 }
 
@@ -19,10 +31,6 @@ table {
 }
 
 
-.report-row {
-
-}
-
 .report-row:hover {
   background-color: #374066;
   cursor: pointer;
@@ -32,6 +40,12 @@ table {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none;
+}
+.image-td {
+  width: 80px !important;
+}
+.layout-container {
+  background-color: #191c26;
 }
 
 //.mat-dialog-container, nb-dialog-container {

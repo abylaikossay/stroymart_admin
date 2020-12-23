@@ -18,25 +18,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   user: any;
 
-  // themes = [
-  //   {
-  //     value: 'default',
-  //     name: 'Light',
-  //   },
-  //   {
-  //     value: 'dark',
-  //     name: 'Dark',
-  //   },
-  //   // {
-  //   //   value: 'cosmic',
-  //   //   name: 'Cosmic',
-  //   // },
-  //   // {
-  //   //   value: 'corporate',
-  //   //   name: 'Corporate',
-  //   // },
-  // ];
-
   currentTheme = 'dark';
 
   userMenu = [{title: 'Profile'}, {title: 'Log out', link: '/auth/logout'}];
@@ -47,6 +28,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private themeService: NbThemeService,
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService) {
+  }
+
+  backHome(): void {
+    this.router.navigate(['admin/dashboard']);
   }
 
   ngOnInit() {

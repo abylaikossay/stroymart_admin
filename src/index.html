@@ -24,6 +24,23 @@
       box-shadow: none !important;
       width: 100%;
     }
+    .close-button-image {
+      cursor: pointer;
+      width: 14px;
+      height: 14px;
+    }
+    /*.mat-header-row.cdk-header-row.ng-star-inserted {*/
+    /*  display: none;*/
+    /*}*/
+
+    .cdk-overlay-pane {
+      max-width: 100vw !important;
+    }
+
+
+    .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+      /*background-color: #2179DB !important;*/
+    }
 
     button {
       text-transform: capitalize !important;
@@ -55,9 +72,13 @@
       background: #3b3e4f !important;
       border-radius: 24px !important;
     }
+    /*.as-split-gutter-icon {*/
+    /*  display: list-item !important;*/
+    /*}*/
 
     button.appearance-filled.status-danger {
       background: #DE1111 !important;
+      border-radius: 0 !important;
     }
 
     button.appearance-outline.status-danger {
@@ -139,12 +160,15 @@ button.select-button {
   min-width: 0 !important;
   width: 10px !important;
 }
+
 button.select-button > nb-icon {
   display: none;
 }
+
 button.appearance-ghost.icon-start.icon-end.nb-transition {
   border: none;
 }
+
 .spinner div:first-child:after, .spinner div:first-child:before {
   content: '';
   position: absolute;

@@ -1,9 +1,23 @@
 .addition-info-header {
-  background-color: #02344f;
+  background-color: #000;
+  align-items: flex-end;
+  p {
+    color: #fff;
+  }
 }
-
+.outline-figma-button {
+  color: #2179db !important;
+  background: transparent !important;
+  border: 0.8px solid #2179db  !important;
+  box-sizing: border-box !important;
+  border-radius: 3px !important;
+}
 nb-card-header {
   color: #ffffff;
+}
+nb-card-footer {
+  background: #e8f2fe !important;
+  border: 0.5px solid #cdcdcd !important;
 }
 
 table {

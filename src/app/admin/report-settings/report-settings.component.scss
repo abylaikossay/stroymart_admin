@@ -4,14 +4,64 @@ div {
   font-style: normal;
   font-weight: 500;
 }
+//nb-card-header {
+//  padding: 0 20px 0 20px;
+//  background: rgba(23, 21, 28, 0.5);
+//}
 .dots-span {
   margin: 5px;
 }
+.header-container {
+
+}
 .chose-date-card {
   width: 700px;
+  background: #2c3545 !important;
+
+}
+.transparent-button {
+  color: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-sizing: border-box !important;
+  border-radius: 2px !important;
+  background: transparent !important;
 }
 nb-card.main-card {
-  height: 85vh;
+  background-color: #191c26;
+  height: 100vh;
+}
+button.time-btn {
+  background: #272a38 !important;
+  border-radius: 2.3048px !important;
+  color: #2179db !important;
+  border: none !important;
+  width: 40px;
+  height: 40px;
+  font-size: 23.05px;
+  font-weight: 400;
+}
+.grey-header-title {
+  font-weight: 500;
+  font-size: 12px;
+  color: #767676;
+}
+.white-header-title {
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff;
+}
+.time-text {
+  text-align: center;
+  color: #2179db;
+  font-size: 12px;
+  font-weight: 400;
+}
+button.report-header-btn {
+  background: #242632 !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+  color: white !important;
+  border-radius: 0;
+  border: none !important;
 }
 .chose-time-card {
   width: 200px;
@@ -31,49 +81,4 @@ span.page-number {
   position: fixed;
   top: 28%;
   right: 4%;
-}
-
-
-
-
-
-
-
-.wrapper {
-  //background-color: #fff;
-  //color: #444;
-  /* Use flexbox */
-  display: flex;
-}
-
-.box {
-  width: 100%;
-  //background-color: #444;
-  //color: #fff;
-  //border-radius: 5px;
-  //padding: 20px;
-  //font-size: 150%;
-
-  /* Use box-sizing so that element's outerwidth will match width property */
-  //box-sizing: border-box;
-
-  /* Allow box to grow and shrink, and ensure they are all equally sized */
-  flex: 3 1 auto;
-}
-
-.handler {
-  width: 20px;
-  margin: 15px;
-  cursor: pointer;
-  flex: 0 0 auto;
-}
-
-
-.handler::before {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 100%;
-  background: #242731;
-  margin: 0 auto;
 }

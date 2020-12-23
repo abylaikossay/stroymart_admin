@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="image" sticky>
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let report">
+    <th mat-header-cell class="image-td" *matHeaderCellDef></th>
+    <td mat-cell class="image-td" *matCellDef="let report">
 <!--      TODO file url-->
       <img [routerLink]="'/admin/report-settings/' + report.id" src="{{fileUrl }}" alt=""
            class="table-image">
@@ -28,3 +28,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr class="report-row" (click)="test(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
