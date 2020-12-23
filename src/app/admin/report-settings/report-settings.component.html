@@ -13,13 +13,13 @@
     <hr>
     <div class="d-flex justify-content-between align-items-center overflow-auto header-container">
       <div class="d-flex justify-content-between">
-        <div class="mr-2">
+        <div class="mr-4">
           <div class="mb-3 grey-header-title">
             Дата недели создании отчета
           </div>
           <button nbButton size="small" class="report-header-btn" (click)="choseDates(dateDialog)">Выбрать день недели</button>
         </div>
-        <div class="mr-2 grey-header-title">
+        <div class="mr-4 grey-header-title">
           <div class="mb-3">Автоотправка</div>
           <mat-slide-toggle
             [color]="color"
@@ -28,7 +28,7 @@
           ></mat-slide-toggle>
 <!--          <nb-toggle (change)="changed()" [(ngModel)]="report.autoSending" status="primary"></nb-toggle>-->
         </div>
-        <div class="mr-2 white-header-title">
+        <div class="white-header-title">
         <span>
           Отчет отправится через:
         </span>
@@ -61,10 +61,10 @@
         </div>
       </div>
       <div class="d-flex justify-content-between">
-        <div class="mr-2">
+        <div class="mr-4">
           <button class="header-buttons" class="report-header-btn" (click)="openMatClassifier(report)" nbButton>Фильтр по материалам</button>
         </div>
-        <div class="mr-2">
+        <div class="mr-4">
           <button class="header-buttons" class="report-header-btn" [routerLink]="'/admin/recipients/' + report.id" nbButton>Получатели</button>
         </div>
         <div>
@@ -133,7 +133,7 @@
             <nb-option *ngFor="let hour of hoursList" value="{{hour}}">{{hour}}</nb-option>
           </nb-select>
           <span class="d-flex align-items-center">:</span>
-          <nb-select [(ngModel)]="reportMinutes">
+          <nb-select [(ngModel)]="reportMinutes" class="mr-3">
             <nb-option *ngFor="let minute of minutesList" value="{{minute}}">{{minute}}</nb-option>
           </nb-select>
         </div>
@@ -185,7 +185,7 @@
       </div>
     </nb-card-body>
     <nb-card-footer class="d-flex justify-content-center">
-      <button nbButton (click)="changeGenerateDays(ref)" class="mr-5" status="primary">Применить</button>
+      <button nbButton (click)="changeGenerateDays(ref)" class="mr-3" status="primary">Применить</button>
       <button nbButton class="transparent-button" (click)="cancelTime(ref)">Отменить</button>
     </nb-card-footer>
   </nb-card>

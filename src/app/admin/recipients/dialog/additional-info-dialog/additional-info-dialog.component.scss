@@ -46,7 +46,9 @@ table {
   border-radius: 2px;
   color: #9a9b9c !important;
 }
-
+:host {
+  max-width: 480px;
+}
 .category-card-header {
   //color: #02344f;
   color: #217ad8;

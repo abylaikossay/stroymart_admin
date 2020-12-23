@@ -15,9 +15,13 @@ div {
 
 }
 .chose-date-card {
-  width: 700px;
+  width: 500px;
   background: #2c3545 !important;
-
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+.day-chosen-btn {
+  padding: 10px !important;
 }
 .transparent-button {
   color: rgba(255, 255, 255, 0.5) !important;

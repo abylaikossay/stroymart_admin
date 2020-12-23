@@ -17,39 +17,50 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private reportService: ReportService,
-              private router: Router
+              private router: Router,
   ) {
   }
 
   ngOnInit(): void {
     this.reportService.getAll().subscribe(response => {
       console.log(response);
-      this.dataSource = response;
-      let days = '';
-      this.dataSource.forEach(element => {
-        if (element.generateInMonday) {
-          days = 'ПН ';
-        }
-        if (element.generateInTuesday) {
-          days += 'ВТ ';
-        }
-        if (element.generateInWednesday) {
-          days += 'СР ';
-        }
-        if (element.generateInThursday) {
-          days += 'ЧТ ';
-        }
-        if (element.generateInFriday) {
-          days += 'ПТ ';
-        }
-        if (element.generateInSaturday) {
-          days += 'СБ ';
-        }
-        if (element.generateInSunday) {
-          days += 'ВС ';
+      response.forEach(element => {
+        let days = '';
+        for (let i = 0; i < element.daysOfPublication.length; i++ ) {
+          if (element.daysOfPublication.length === i + 1) {
+            days += ` ${element.daysOfPublication[i]}`;
+          } else {
+            days += ` ${element.daysOfPublication[i]},`;
+          }
         }
         element.days = days;
       });
+      this.dataSource = response;
+
+      // let days = '';
+      // this.dataSource.forEach(element => {
+      //   if (element.generateInMonday) {
+      //     days = 'ПН ';
+      //   }
+      //   if (element.generateInTuesday) {
+      //     days += 'ВТ ';
+      //   }
+      //   if (element.generateInWednesday) {
+      //     days += 'СР ';
+      //   }
+      //   if (element.generateInThursday) {
+      //     days += 'ЧТ ';
+      //   }
+      //   if (element.generateInFriday) {
+      //     days += 'ПТ ';
+      //   }
+      //   if (element.generateInSaturday) {
+      //     days += 'СБ ';
+      //   }
+      //   if (element.generateInSunday) {
+      //     days += 'ВС ';
+      //   }
+      // });
     }, error => {
       console.error(error);
     });
