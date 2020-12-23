@@ -12,7 +12,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 export class AddInfoDialogComponent implements OnInit {
   receivers: any = [];
   selection = new SelectionModel(true, []);
-  displayedColumns: string[] = ['id', 'title', 'bin', 'emailAddress', 'contactPhone'];
+  displayedColumns: string[] = ['title', 'bin', 'emailAddress', 'contactPhone'];
 
   constructor(public dialogRef: MatDialogRef<AddInfoDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,

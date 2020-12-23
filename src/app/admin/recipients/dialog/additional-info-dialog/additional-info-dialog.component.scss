@@ -1,7 +1,6 @@
 .addition-info-header {
   background-color: #02344f;
   max-width: 100vw;
-
 }
 
 .additional-info-modal {
@@ -16,7 +15,7 @@ table {
   }
 
   & th {
-    color: black;
+    color: #9a9b9c;
   }
 
   tbody tr th:nth-child(2),
@@ -25,9 +24,32 @@ table {
   }
 }
 
+.category-name {
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: #217ad8 !important;
+}
+
+.add-btn {
+  background: #02344f !important;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(185, 185, 185, 0.35) !important;
+  border-radius: 2px !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+}
+
+.cancel-btn {
+  background: #ffffff !important;
+  border: 1px solid #9a9b9c !important;
+  border-radius: 2px;
+  color: #9a9b9c !important;
+}
+
 .category-card-header {
-  background-color: #e8f2fe;
-  color: #02344f;
+  //color: #02344f;
+  color: #217ad8;
   align-items: center;
 }
 
@@ -52,6 +74,7 @@ nb-card {
   color: #000000 !important;
   background-color: #ffffff;
 }
+
 .wider-column {
   flex: 0 0 75px;
 }

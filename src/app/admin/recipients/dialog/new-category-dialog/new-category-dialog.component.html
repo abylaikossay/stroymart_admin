@@ -10,7 +10,11 @@
       <h3 style="color: #217AD8">Название категории</h3>
     </div>
     <div class="row">
-      <input type="text" status="basic" [(ngModel)]="categoryName" fullWidth nbInput  placeholder="Введите текст">
+<!--      <input type="text" status="basic" [(ngModel)]="categoryName" fullWidth nbInput  placeholder="Введите текст">-->
+      <mat-form-field class="example-full-width">
+        <mat-label>Введите текст</mat-label>
+        <input matInput [(ngModel)]="categoryName">
+      </mat-form-field>
     </div>
     <div class="mt-4" *ngIf="receivers.length > 0">
       <table class="table">
@@ -54,7 +58,7 @@
     </div>
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-center">
-    <button nbButton class="mr-3" (click)="saveCategory()" status="primary">Сохранить</button>
-    <button nbButton (click)="closeDialog()">Отменить</button>
+    <button nbButton class="mr-3 add-btn" (click)="saveCategory()">Сохранить</button>
+    <button nbButton class="cancel-btn" (click)="closeDialog()">Отменить</button>
   </nb-card-footer>
 </nb-card>

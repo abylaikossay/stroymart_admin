@@ -1,8 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {AddInfoDialogComponent} from '../add-info-dialog/add-info-dialog.component';
-import {EditInfoDialogComponent} from '../edit-info-dialog/edit-info-dialog.component';
-import {DeleteInfoDialogComponent} from '../delete-info-dialog/delete-info-dialog.component';
 import {ContractorService} from '../../../../@core/services/contractor.service';
 import {CategoryService} from '../../../../@core/services/category.service';
 import {NbToastrService} from '@nebular/theme';
@@ -94,7 +92,7 @@ export class NewCategoryDialogComponent implements OnInit {
       const addInfoDialog = this.matDialog.open(AddInfoDialogComponent, {
         panelClass: 'additional-info-modal',
         data: {element: response, type: 'new'},
-        width: '70vw',
+        width: '75vw',
         maxWidth: '100vw',
 
       });

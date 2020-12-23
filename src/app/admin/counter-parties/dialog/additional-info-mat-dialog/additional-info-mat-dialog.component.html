@@ -29,7 +29,7 @@
         {{category.categoryName}}
 			</nb-card-header>
 			<nb-card-body class="category-card-body" style="padding: 65px">
-				<table mat-table [dataSource]="category?.contractors" class="mat-elevation-z8">
+				<table mat-table [dataSource]="category?.contractors">
 					<ng-container matColumnDef="name">
 						<th mat-header-cell *matHeaderCellDef>Наименование</th>
 						<td mat-cell

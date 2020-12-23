@@ -74,7 +74,15 @@ export class RecipientsComponent implements OnInit {
 
   addToChosen(category: any, i: any) {
     // this.categories.splice(i, 1);
-    this.chosenCategories.push(category);
+    let exists = false;
+    this.chosenCategories.forEach(element => {
+      if (element.id === category.id) {
+        exists = true;
+      }
+    });
+    if (!exists) {
+      this.chosenCategories.push(category);
+    }
   }
 
   addNewCategory() {

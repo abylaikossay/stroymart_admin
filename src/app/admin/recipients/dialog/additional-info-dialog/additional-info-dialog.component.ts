@@ -13,7 +13,7 @@ import {CategoryService} from '../../../../@core/services/category.service';
 })
 export class AdditionalInfoDialogComponent implements OnInit {
   contractors: any;
-  displayedColumns: string[] = ['id', 'name', 'bin', 'email', 'phone', 'actions'];
+  displayedColumns: string[] = ['name', 'bin', 'email', 'phone', 'actions'];
   editableCategory: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<AdditionalInfoDialogComponent>,
@@ -27,6 +27,7 @@ export class AdditionalInfoDialogComponent implements OnInit {
     console.log(this.data);
     this.getAllContractors();
   }
+
   getAllContractors() {
     this.contractorService.getByCategoryId(this.data.id).subscribe(response => {
       console.log(response);
@@ -48,7 +49,7 @@ export class AdditionalInfoDialogComponent implements OnInit {
   deleteRecipient(recipient: any, type: string) {
     const deleteDialog = this.matDialog.open(DeleteInfoDialogComponent, {
       data: {element: recipient, type: type},
-      width: '60vw',
+      maxWidth: '470px',
       panelClass: 'delete-recipient-dialog',
     });
     deleteDialog.afterClosed().subscribe(result => {
@@ -65,10 +66,11 @@ export class AdditionalInfoDialogComponent implements OnInit {
     const editDialog = this.matDialog.open(EditInfoDialogComponent, {
       data: recipient,
       panelClass: 'additional-info-modal',
-      width: '60vw',
+      width: '80vw',
+      height: '80vh',
     });
     editDialog.afterClosed().subscribe(result => {
-        this.getAllContractors();
+      this.getAllContractors();
     });
   }
 
@@ -76,16 +78,16 @@ export class AdditionalInfoDialogComponent implements OnInit {
     const addInfoDialog = this.matDialog.open(AddInfoDialogComponent, {
       panelClass: 'additional-info-modal',
       data: {element: this.data, type: 'exists'},
-      width: '60vw',
+      width: '75vw',
     });
     addInfoDialog.afterClosed().subscribe(result => {
-        this.getAllContractors();
+      this.getAllContractors();
     });
   }
 
   editCategory() {
     console.log(this.data);
-    this.categoryService.editCategory(this.data).subscribe( resp => {
+    this.categoryService.editCategory(this.data).subscribe(resp => {
       console.log(resp);
       this.editableCategory = false;
     }, error => {

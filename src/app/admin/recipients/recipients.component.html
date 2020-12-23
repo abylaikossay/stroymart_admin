@@ -1,9 +1,10 @@
 <nb-card>
   <nb-card-header class="d-flex justify-content-between align-items-center">
     Получатели
-    <button nbButton ghost [routerLink]="'/admin/report-settings/' + id">
-      <nb-icon icon="close-outline"></nb-icon>
-    </button>
+    <img src="assets/Х.svg" [routerLink]="'/admin/report-settings/' + id" class="close-button-image">
+<!--    <button nbButton ghost [routerLink]="'/admin/report-settings/' + id">-->
+<!--      <nb-icon icon="close-outline"></nb-icon>-->
+<!--    </button>-->
   </nb-card-header>
   <nb-card-body>
     <div class="row">
@@ -12,28 +13,28 @@
         <div class="overflow-auto">
           <nb-list>
             <nb-list-item *ngFor="let i = index; let category of categories">
-              <button (click)="goToInfo(category)" nbButton class="mr-2">
-                <nb-icon icon="info-outline" ></nb-icon>
-              </button>
-              <button nbButton (click)="addToChosen(category, i)" ghost class="w-100">
+              <img src="assets/info.svg" (click)="goToInfo(category)" class="recipients-images">
+<!--              <button (click)="goToInfo(category)" nbButton class="mr-2">-->
+<!--                <nb-icon icon="info-outline" ></nb-icon>-->
+<!--              </button>-->
+              <div (click)="addToChosen(category, i)" class="w-100 category-name-div">
                 {{ category?.name }}
-              </button>
+              </div>
             </nb-list-item>
           </nb-list>
-          <button class="mt-5" nbButton (click)="addNewCategory()">Добавить категорию</button>
+          <button class="mt-5 ml-5 add-new-cat-btn" nbButton (click)="addNewCategory()">Добавить категорию</button>
         </div>
       </div>
       <div class="col-6">
         <h3>Выбранные категории : {{chosenCategories.length}}</h3>
         <nb-list>
           <nb-list-item *ngFor="let i = index; let chosenCategories of chosenCategories">
-            <button (click)="goToInfo(chosenCategories)" nbButton class="mr-2">
-              <nb-icon icon="info-outline" ></nb-icon>
-            </button>
-            <button nbButton class="w-100" ghost>
+            <img src="assets/info.svg" (click)="goToInfo(chosenCategories)" class="recipients-images">
+            <div class="w-100 category-name-div">
               {{ chosenCategories?.name }}
-            </button>
-            <button nbButton (click)="deleteChosen(chosenCategories, i)"><nb-icon icon="trash-outline"></nb-icon></button>
+            </div>
+            <img src="assets/remove.svg" (click)="deleteChosen(chosenCategories, i)" class="recipients-images bg-transparent">
+<!--            <button nbButton (click)="deleteChosen(chosenCategories, i)"><nb-icon icon="trash-outline"></nb-icon></button>-->
           </nb-list-item>
         </nb-list>
       </div>
@@ -41,6 +42,6 @@
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-center">
     <button nbButton (click)="saveAndReturn()" class="mr-5" status="primary">Применить</button>
-    <button nbButton [routerLink]="'/admin/report-settings/' + id">Отменить</button>
+    <button nbButton class="otmenit-btn" [routerLink]="'/admin/report-settings/' + id">Отменить</button>
   </nb-card-footer>
 </nb-card>

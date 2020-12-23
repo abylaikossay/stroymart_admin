@@ -13,3 +13,21 @@
 table {
   width: 100%;
 }
+.add-btn {
+  background: #02344f !important;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(185, 185, 185, 0.35) !important;
+  border-radius: 2px !important;
+  color: #ABDFEC !important;
+  border: none !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+}
+
+.cancel-btn {
+  border: 1px solid #02344F !important;
+  box-sizing: border-box !important;
+  border-radius: 2px !important;
+  background: #FFFFFF !important;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25) !important;
+  color: #02344F !important;
+}

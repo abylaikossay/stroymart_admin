@@ -1,9 +1,7 @@
 <nb-card class="bg-white" style="height: 100%">
-  <nb-card-header class="addition-info-header d-flex justify-content-between">
+  <nb-card-header class="addition-info-header d-flex justify-content-between align-items-center">
     Дополнительные сведения
-    <button (click)="closeDialog()" ghost nbButton>
-      <nb-icon icon="close-outline"></nb-icon>
-    </button>
+    <img src="assets/Х.svg" (click)="closeDialog()" class="close-button-image">
   </nb-card-header>
   <nb-card-body>
     <div class="d-flex justify-content-center mb-5">
@@ -25,7 +23,7 @@
     <nb-card class="bg-white border-0">
       <nb-card-header class="category-card-header d-flex justify-content-between">
         <div>
-          <div *ngIf="!editableCategory">
+          <div *ngIf="!editableCategory" class="category-name">
             {{data.name}}
           </div>
           <div *ngIf="editableCategory">
@@ -68,7 +66,7 @@
                 *matCellDef="let recipient">{{recipient.emailAddress}}</td>
           </ng-container>
           <ng-container matColumnDef="phone">
-            <th mat-header-cell *matHeaderCellDef>Номер телефона</th>
+            <th mat-header-cell *matHeaderCellDef>Телефон</th>
             <td mat-cell class="pr-5"
                 *matCellDef="let recipient">{{recipient.contactPhone}}</td>
           </ng-container>
@@ -93,7 +91,7 @@
 
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-center">
-    <button nbButton class="mr-3" (click)="addNewRecipient()" status="primary">Добавить</button>
-    <button nbButton (click)="closeDialog()">Отменить</button>
+    <button nbButton class="mr-3 add-btn" (click)="addNewRecipient()">Добавить</button>
+    <button nbButton class="cancel-btn" (click)="closeDialog()">Отменить</button>
   </nb-card-footer>
 </nb-card>

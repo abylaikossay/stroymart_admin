@@ -1,4 +1,4 @@
-<nb-card class="bg-white">
+<nb-card class="bg-white" style="height: 80vh">
   <nb-card-header class="addition-info-header d-flex">
     <div class="d-flex w-100 align-items-center justify-content-center">
       Добавление компании для {{data.element.name}}
@@ -9,12 +9,12 @@
   </nb-card-header>
   <nb-card-body class="justify-content-center">
     <table mat-table [dataSource]="receivers" class="mat-elevation-z8">
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
                         [indeterminate]="selection.hasValue() && !isAllSelected()">
-            Выбрать все
+            Наименование
           </mat-checkbox>
         </th>
         <td mat-cell class="pr-5"
@@ -22,15 +22,15 @@
           <mat-checkbox color="primary" (click)="$event.stopPropagation()"
                         (change)="$event ? this.selection.toggle(material) : null"
                         [checked]="selection.isSelected(material)">
-            {{material.id}}
+            {{material.title}}
           </mat-checkbox>
         </td>
       </ng-container>
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Наименование</th>
-        <td mat-cell class="pr-5"
-            *matCellDef="let material">{{material.title}}</td>
-      </ng-container>
+<!--      <ng-container matColumnDef="title">-->
+<!--        <th mat-header-cell *matHeaderCellDef>Наименование</th>-->
+<!--        <td mat-cell class="pr-5"-->
+<!--            *matCellDef="let material">{{material.title}}</td>-->
+<!--      </ng-container>-->
       <ng-container matColumnDef="bin">
         <th mat-header-cell *matHeaderCellDef>Бин</th>
         <td mat-cell
@@ -48,11 +48,12 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr class="{{(selection.isSelected(row)) ? 'selected-row' : ''}}" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="{{(selection.isSelected(row)) ? 'selected-row' : ''}}" mat-row
+          *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-center">
-    <button class="mr-3" (click)="newCompany()"  nbButton status="primary">Добавить</button>
-    <button nbButton (click)="closeDialog('close')" >Отменить</button>
+    <button nbButton class="mr-3 add-btn" (click)="newCompany()">Сохранить</button>
+    <button nbButton class="cancel-btn" (click)="closeDialog('close')">Отменить</button>
   </nb-card-footer>
 </nb-card>

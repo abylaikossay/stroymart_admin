@@ -1,3 +1,67 @@
 nb-card {
-  height: 90%;
+  background: #272a38 !important;
+  height: 100vh !important;
+}
+
+nb-card-body {
+  padding: 2.5rem !important;
+}
+
+nb-card-header {
+  font-weight: bold;
+  font-size: 28px;
+  align-items: center;
+  padding: 2rem !important;
+  color: #ffffff;
+}
+
+.col-6 {
+  h3 {
+    font-weight: 500;
+    font-size: 21px;
+    align-items: center;
+    color: #ffffff;
+  }
+}
+
+nb-card-footer {
+  background: rgba(28, 32, 43, 0.5) !important;
+}
+
+nb-list-item {
+  border: none !important;
+  padding: 0;
+}
+
+.category-name-div {
+  padding: 20px !important;
+  margin: 0.3rem;
+  font-weight: normal !important;
+  font-size: 16px !important;
+  align-items: center !important;
+  color: #ffffff !important;
+  background: #2c3545 !important;
+}
+
+.recipients-images {
+  background: #2c3545;
+  padding: 20px;
+}
+
+.add-new-cat-btn {
+  background: #242632 !important;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 2px !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.otmenit-btn {
+  background: rgba(28, 32, 43, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-sizing: border-box !important;
+  border-radius: 2px !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }

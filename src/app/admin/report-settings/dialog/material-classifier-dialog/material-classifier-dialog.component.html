@@ -1,9 +1,11 @@
 <nb-card class="bg-white">
-  <nb-card-header class="addition-info-header d-flex justify-content-between">
+  <nb-card-header class="addition-info-header d-flex justify-content-between align-items-center">
     Классификатор материалов
-    <button (click)="closeDialog()" ghost nbButton>
-      <nb-icon icon="close-outline"></nb-icon>
-    </button>
+    <img src="assets/Х.svg" (click)="closeDialog()" class="close-button-image">
+
+<!--    <button (click)="closeDialog()" ghost nbButton>-->
+<!--      <nb-icon icon="close-outline"></nb-icon>-->
+<!--    </button>-->
   </nb-card-header>
   <nb-card-body class="classifier-card-body">
     <div class="d-flex justify-content-between" style="max-height: 100%">
@@ -142,11 +144,11 @@
       </div>
       <div class="border-left-custom">
         <div class="row mb-2">
-          <button [disabled]="materials.length === 0" (click)="submitMaterials()" nbButton status="primary">Применить
+          <button [disabled]="materials.length === 0" style="width: 160px" (click)="submitMaterials()" nbButton status="primary">Применить
           </button>
         </div>
         <div class="row">
-          <button nbButton outline class="outline-figma-button" status="primary" (click)="closeDialog()">Отменить</button>
+          <button nbButton outline class="outline-figma-button" style="width: 160px" status="primary" (click)="closeDialog()">Отменить</button>
         </div>
       </div>
     </div>

@@ -1,13 +1,12 @@
-<nb-card class="bg-white">
+<nb-card class="bg-white" style="height: 80vh">
   <nb-card-header class="addition-info-header d-flex">
-    <div class="d-flex w-100 align-items-center justify-content-center">
+    <div class="d-flex w-100 align-items-center header-title justify-content-center">
       Редактирование информации
     </div>
-    <button (click)="closeDialog()" ghost nbButton>
-      <nb-icon icon="close-outline"></nb-icon>
-    </button>
+    <img src="assets/Х.svg" (click)="closeDialog()" class="close-button-image">
   </nb-card-header>
   <nb-card-body class="justify-content-center">
+    <div></div>
     <div class="form-control-group mb-2">
       <label class="label" for="bin">Бин организации</label>
       <input type="text" id="bin" [(ngModel)]="company.bin" fullWidth nbInput
@@ -50,7 +49,7 @@
     </div>
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-center">
-    <button nbButton class="mr-3" (click)="saveRecipient()" status="primary">Сохранить</button>
-    <button nbButton (click)="closeDialog()">Отменить</button>
+    <button nbButton class="mr-3 add-btn" (click)="saveRecipient()">Сохранить</button>
+    <button nbButton class="cancel-btn" (click)="closeDialog()">Отменить</button>
   </nb-card-footer>
 </nb-card>

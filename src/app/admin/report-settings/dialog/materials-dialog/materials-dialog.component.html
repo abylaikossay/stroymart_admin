@@ -3,9 +3,7 @@
     <div class="d-flex w-100 align-items-center justify-content-center">
       Материалы
     </div>
-    <button (click)="closeDialog()" ghost nbButton>
-      <nb-icon icon="close-outline"></nb-icon>
-    </button>
+    <img src="assets/Х.svg" (click)="closeDialog()" class="close-button-image">
   </nb-card-header>
   <!--  <nb-card-header class="addition-info-header d-flex justify-content-between">-->
   <!--    Материалы-->
@@ -25,7 +23,7 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>
-          <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
+          <mat-checkbox color="primary" style="color: #979EA5 !important;" (change)="$event ? masterToggle() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
                         [indeterminate]="selection.hasValue() && !isAllSelected()">
             Наименование материала
@@ -57,7 +55,7 @@
     </table>
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-center">
-    <button nbButton status="primary" (click)="submitAndClose()">Применить</button>
-    <button nbButton (click)="closeDialog()" ghost>Отменить</button>
+    <button nbButton status="primary" class="mr-3" (click)="submitAndClose()">Применить</button>
+    <button nbButton (click)="closeDialog()" class="cancel-btn">Отменить</button>
   </nb-card-footer>
 </nb-card>
