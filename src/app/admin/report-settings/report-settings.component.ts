@@ -103,11 +103,9 @@ export class ReportSettingsComponent implements OnInit {
 
   getFileInfo() {
     this.reportService.getPdfPath(this.id).toPromise().then(response => {
-      console.log(response);
       this.pdfSrc = environment.apiUrl + '/api/pdf/' + response.fileName;
     }).catch(err => console.error(err));
     // this.reportService.getPdfPath(this.id).subscribe( data => {
-    //     console.log(data);
     //     this.pdfSrc = environment.apiUrl + '/api/pdf/' + data;
     // }, error => {
     //     console.error(error);
@@ -120,7 +118,6 @@ export class ReportSettingsComponent implements OnInit {
     }
     this.reportService.getById(this.id).subscribe(async data => {
       this.report = data;
-      console.log(data);
       // this.pdfSrc = 'http://localhost:9090/api/pdf/pdf-18-44-46.pdf';
       this.pageLoaded = true;
       if (firstInit) {
@@ -145,7 +142,6 @@ export class ReportSettingsComponent implements OnInit {
 
   updateRequest() {
     this.reportService.updateReport(this.report).toPromise().then(response => {
-      console.log(response);
       this.isLoading = false;
     }).catch(error => {
       this.getReportInfo(false);
@@ -161,7 +157,6 @@ export class ReportSettingsComponent implements OnInit {
       width: '100vw',
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
     });
   }
 
@@ -189,8 +184,6 @@ export class ReportSettingsComponent implements OnInit {
 
   afterLoadComplete(pdf: any) {
     this.pdf = pdf;
-    console.log(pdf);
-    console.log(pdf.numPages);
     for (let i = 1; i <= pdf.numPages; i++) {
       const pageObject = {pageNumber: i};
       this.pdfPagesList.push(pageObject);

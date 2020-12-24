@@ -5,16 +5,11 @@
     </div>
     <img src="assets/Х.svg" (click)="closeDialog()" class="close-button-image">
   </nb-card-header>
-  <!--  <nb-card-header class="addition-info-header d-flex justify-content-between">-->
-  <!--    Материалы-->
-  <!--    <button (click)="closeDialog()" ghost nbButton>-->
-  <!--      <nb-icon icon="close-outline"></nb-icon>-->
-  <!--    </button>-->
-  <!--  </nb-card-header>-->
   <nb-card-body class="classifier-card-body">
     <div class="d-flex justify-content-center mb-5">
       <div class="d-flex w-50">
-        <input class="bg-white" fullWidth nbInput status="basic" placeholder="Поиск">
+        <input #input class="bg-white" (keyup)="applyFilter($event)" fullWidth nbInput
+               status="basic" placeholder="Поиск">
         <button nbButton>
           <nb-icon icon="search-outline"></nb-icon>
         </button>
@@ -34,7 +29,7 @@
           <mat-checkbox color="primary" (click)="$event.stopPropagation()"
                         (change)="$event ? this.selection.toggle(material) : null"
                         [checked]="selection.isSelected(material)"
-                        >
+          >
             {{material.mtName}}
           </mat-checkbox>
         </td>
@@ -51,7 +46,11 @@
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr class="{{(selection.isSelected(row)) ? 'selected-row' : ''}}" mat-row
-          *matRowDef="let row; columns: displayedColumns;"></tr>
+          *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Не найдено "{{input.value}}"</td>
+      </tr>
     </table>
   </nb-card-body>
   <nb-card-footer class="d-flex justify-content-center">

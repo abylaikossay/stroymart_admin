@@ -5,6 +5,7 @@ import {EditInfoDialogComponent} from '../edit-info-dialog/edit-info-dialog.comp
 import {AddInfoDialogComponent} from '../add-info-dialog/add-info-dialog.component';
 import {ContractorService} from '../../../../@core/services/contractor.service';
 import {CategoryService} from '../../../../@core/services/category.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'ngx-additional-info-dialog',
@@ -12,9 +13,10 @@ import {CategoryService} from '../../../../@core/services/category.service';
   styleUrls: ['./additional-info-dialog.component.scss'],
 })
 export class AdditionalInfoDialogComponent implements OnInit {
-  contractors: any;
   displayedColumns: string[] = ['name', 'bin', 'email', 'phone', 'actions'];
   editableCategory: boolean = false;
+  MATERIALS_DATA: [] = [];
+  dataSource = new MatTableDataSource(this.MATERIALS_DATA);
 
   constructor(public dialogRef: MatDialogRef<AdditionalInfoDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -31,7 +33,8 @@ export class AdditionalInfoDialogComponent implements OnInit {
   getAllContractors() {
     this.contractorService.getByCategoryId(this.data.id).subscribe(response => {
       console.log(response);
-      this.contractors = response;
+      this.MATERIALS_DATA = response;
+      this.dataSource = new MatTableDataSource(this.MATERIALS_DATA);
     }, error => {
       console.error(error);
     });
@@ -93,6 +96,9 @@ export class AdditionalInfoDialogComponent implements OnInit {
     }, error => {
       console.error(error);
     });
-
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

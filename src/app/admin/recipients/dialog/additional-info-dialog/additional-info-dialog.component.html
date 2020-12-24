@@ -6,7 +6,7 @@
   <nb-card-body>
     <div class="d-flex justify-content-center mb-5">
       <div class="d-flex w-50">
-        <input class="bg-white" status="basic" fullWidth nbInput placeholder="Поиск">
+        <input (keyup)="applyFilter($event)" #input class="bg-white" status="basic" fullWidth nbInput placeholder="Поиск">
         <button nbButton>
           <nb-icon icon="search-outline"></nb-icon>
         </button>
@@ -42,7 +42,7 @@
         </div>
       </nb-card-header>
       <nb-card-body class="category-card-body">
-        <table mat-table [dataSource]="contractors" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>Id</th>
             <td mat-cell class="pr-3"
@@ -84,6 +84,9 @@
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Не найдено "{{input.value}}"</td>
+          </tr>
         </table>
       </nb-card-body>
     </nb-card>
