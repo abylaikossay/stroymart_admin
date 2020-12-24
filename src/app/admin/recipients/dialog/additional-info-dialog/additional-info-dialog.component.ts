@@ -49,7 +49,7 @@ export class AdditionalInfoDialogComponent implements OnInit {
   deleteRecipient(recipient: any, type: string) {
     const deleteDialog = this.matDialog.open(DeleteInfoDialogComponent, {
       data: {element: recipient, type: type},
-      maxWidth: '430px',
+      width: '450px',
       panelClass: 'delete-recipient-dialog',
     });
     deleteDialog.afterClosed().subscribe(result => {

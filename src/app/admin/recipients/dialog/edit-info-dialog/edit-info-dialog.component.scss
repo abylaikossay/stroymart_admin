@@ -6,6 +6,18 @@
   font-weight: bold;
   font-size: 20px;
 }
+.main-div {
+  padding: 2rem 8vw 1vh 14vw;
+}
+.custom-label {
+  font-family: Roboto !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+  align-items: center !important;
+  align-self: center !important;
+  color: #02344F !important;
+}
 
 .add-btn {
   background: #02344f !important;
@@ -16,6 +28,16 @@
   font-weight: 500 !important;
   font-size: 16px !important;
 }
+input {
+  background: #FFFFFF !important;
+  border: 0.8px solid #AFBEC9 !important;
+  box-sizing: border-box !important;
+  border-radius: 2px !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+  color: #02344F !important;
+}
 
 .cancel-btn {
   border: 1px solid #02344F !important;
@@ -24,6 +46,9 @@
   background: #FFFFFF !important;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25) !important;
   color: #02344F !important;
+}
+nb-card-footer {
+  border-top: 1px solid #cdd6e0 !important;
 }
 
 [nbInput] {

@@ -5,49 +5,126 @@
     </div>
     <img src="assets/Х.svg" (click)="closeDialog()" class="close-button-image">
   </nb-card-header>
-  <nb-card-body class="justify-content-center">
-    <div></div>
-    <div class="form-control-group mb-2">
-      <label class="label" for="bin">Бин организации</label>
-      <input type="text" id="bin" [(ngModel)]="company.bin" fullWidth nbInput
-             placeholder="Введите БИН" status="basic">
-    </div>
-    <div class="form-control-group mb-2">
-      <label class="label" for="name">Наименование</label>
-      <input type="text" id="name" [(ngModel)]="company.title" fullWidth nbInput
-             status="basic" placeholder="Введите наименование">
-    </div>
-    <div class="form-control-group mb-2">
-      <label class="label" for="directorName">Имя директора</label>
-      <input type="text" id="directorName" [(ngModel)]="company.directorName" fullWidth nbInput status="basic"
-             placeholder="Введите имя директора">
-    </div>
-    <div class="form-control-group mb-2">
-      <label class="label" for="directorPhone">Телефон директора</label>
-      <input type="text" id="directorPhone" [(ngModel)]="company.directorPhone" fullWidth nbInput status="basic"
-             placeholder="Введите телефон директора">
-    </div>
-    <div class="form-control-group mb-2">
-      <label class="label" for="email">Email</label>
-      <input type="text" id="email" [(ngModel)]="company.emailAddress" fullWidth nbInput status="basic"
-             placeholder="Введите email">
-    </div>
-    <div class="form-control-group mb-2">
-      <label class="label" for="physicalAddress">Физический адресс</label>
-      <input type="text" id="physicalAddress" [(ngModel)]="company.physicalAddress" fullWidth nbInput status="basic"
-             placeholder="Введите физический адресс">
-    </div>
-    <div class="form-control-group mb-2">
-      <label class="label" for="contactName">Контактное лицо</label>
-      <input type="text" id="contactName" [(ngModel)]="company.contactName" fullWidth nbInput status="basic"
-             placeholder="Введите имя контакта">
-    </div>
-    <div class="form-control-group mb-5">
-      <label class="label" for="phone">Телефон</label>
-      <input type="text" id="phone" [(ngModel)]="company.contactPhone" fullWidth nbInput status="basic"
-             placeholder="Введите номер телефона">
+  <nb-card-body>
+    <div class="main-div">
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Бин организации
+          <!--          <p class="custom-label">Бин организации</p>-->
+        </div>
+        <div class="col-7">
+          <input type="text" id="bin" [(ngModel)]="company.bin" fullWidth nbInput
+                 placeholder="Введите БИН" status="basic">
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Наименование
+        </div>
+        <div class="col-7">
+          <input type="text" id="name" [(ngModel)]="company.title" fullWidth nbInput
+                 status="basic" placeholder="Введите наименование">
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Имя директора
+        </div>
+        <div class="col-7">
+          <input type="text" id="directorName" [(ngModel)]="company.directorName" fullWidth nbInput status="basic"
+                 placeholder="Введите имя директора">
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Телефон директора
+        </div>
+        <div class="col-7">
+          <input type="text" id="directorPhone" [(ngModel)]="company.directorPhone" fullWidth nbInput status="basic"
+                 placeholder="Введите телефон директора">
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Email
+        </div>
+        <div class="col-7">
+          <input type="text" id="email" [(ngModel)]="company.emailAddress" fullWidth nbInput status="basic"
+                 placeholder="Введите email">
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Физический адресс
+        </div>
+        <div class="col-7">
+          <input type="text" id="physicalAddress" [(ngModel)]="company.physicalAddress" fullWidth nbInput status="basic"
+                 placeholder="Введите физический адресс">
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Контактное лицо
+        </div>
+        <div class="col-7">
+          <input type="text" id="contactName" [(ngModel)]="company.contactName" fullWidth nbInput status="basic"
+                 placeholder="Введите имя контакта">
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-5 custom-label">
+          Телефон
+        </div>
+        <div class="col-7">
+          <input type="text" id="phone" [(ngModel)]="company.contactPhone" fullWidth nbInput status="basic"
+                 placeholder="Введите номер телефона">
+        </div>
+      </div>
     </div>
   </nb-card-body>
+  <!--  <nb-card-body class="justify-content-center">-->
+  <!--    <div></div>-->
+  <!--    <div class="form-control-group mb-2">-->
+  <!--      <label class="label" for="bin">Бин организации</label>-->
+  <!--      <input type="text" id="bin" [(ngModel)]="company.bin" fullWidth nbInput-->
+  <!--             placeholder="Введите БИН" status="basic">-->
+  <!--    </div>-->
+  <!--    <div class="form-control-group mb-2">-->
+  <!--      <label class="label" for="name">Наименование</label>-->
+  <!--      <input type="text" id="name" [(ngModel)]="company.title" fullWidth nbInput-->
+  <!--             status="basic" placeholder="Введите наименование">-->
+  <!--    </div>-->
+  <!--    <div class="form-control-group mb-2">-->
+  <!--      <label class="label" for="directorName">Имя директора</label>-->
+  <!--      <input type="text" id="directorName" [(ngModel)]="company.directorName" fullWidth nbInput status="basic"-->
+  <!--             placeholder="Введите имя директора">-->
+  <!--    </div>-->
+  <!--    <div class="form-control-group mb-2">-->
+  <!--      <label class="label" for="directorPhone">Телефон директора</label>-->
+  <!--      <input type="text" id="directorPhone" [(ngModel)]="company.directorPhone" fullWidth nbInput status="basic"-->
+  <!--             placeholder="Введите телефон директора">-->
+  <!--    </div>-->
+  <!--    <div class="form-control-group mb-2">-->
+  <!--      <label class="label" for="email">Email</label>-->
+  <!--      <input type="text" id="email" [(ngModel)]="company.emailAddress" fullWidth nbInput status="basic"-->
+  <!--             placeholder="Введите email">-->
+  <!--    </div>-->
+  <!--    <div class="form-control-group mb-2">-->
+  <!--      <label class="label" for="physicalAddress">Физический адресс</label>-->
+  <!--      <input type="text" id="physicalAddress" [(ngModel)]="company.physicalAddress" fullWidth nbInput status="basic"-->
+  <!--             placeholder="Введите физический адресс">-->
+  <!--    </div>-->
+  <!--    <div class="form-control-group mb-2">-->
+  <!--      <label class="label" for="contactName">Контактное лицо</label>-->
+  <!--      <input type="text" id="contactName" [(ngModel)]="company.contactName" fullWidth nbInput status="basic"-->
+  <!--             placeholder="Введите имя контакта">-->
+  <!--    </div>-->
+  <!--    <div class="form-control-group mb-5">-->
+  <!--      <label class="label" for="phone">Телефон</label>-->
+  <!--      <input type="text" id="phone" [(ngModel)]="company.contactPhone" fullWidth nbInput status="basic"-->
+  <!--             placeholder="Введите номер телефона">-->
+  <!--    </div>-->
+  <!--  </nb-card-body>-->
   <nb-card-footer class="d-flex justify-content-center">
     <button nbButton class="mr-3 add-btn" (click)="saveRecipient()">Сохранить</button>
     <button nbButton class="cancel-btn" (click)="closeDialog()">Отменить</button>

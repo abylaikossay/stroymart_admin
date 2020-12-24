@@ -1,6 +1,8 @@
-<div mat-dialog-title class="d-flex header-class justify-content-between align-items-center">
-  Удаление {{type?.first}}
-  <img src="assets/grey-X.svg" (click)="closeDialog()" class="close-button-image">
+<div class="line-header-div">
+  <div mat-dialog-title class="d-flex header-class justify-content-between align-items-center">
+    Удаление {{type?.first}}
+    <img src="assets/grey-X.svg" (click)="closeDialog()" class="close-button-image">
+  </div>
 </div>
 <div mat-dialog-content class="main-delete-div">
   <div class="d-flex justify-content-center">
@@ -20,13 +22,13 @@
   <p class="text-center bold-text">
     Вы уверены, что хотите удалить выбранную {{type?.second}}?
   </p>
-  <p class="text-center">
+  <p class="text-center small-text">
     При нажатии "Удалить", все данные компании безвовзратно будут удалены!
   </p>
   <div class="d-flex justify-content-center no-hover mb-3">
     <button nbButton (click)="deleteCompany()" status="danger">Удалить</button>
   </div>
-  <div class="d-flex justify-content-center no-hover">
-    <button nbButton ghost (click)="closeDialog()">Отменить</button>
+  <div class="d-flex justify-content-center">
+    <button nbButton class="cancel-underlined-button" ghost (click)="closeDialog()">Отменить</button>
   </div>
 </div>
