@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,12 @@ export class PublicationsService {
         id,
       },
     });
+  }
+
+  public downloadReport(id: number): Observable<Blob> {
+    return this.http.get(this.fullUrl + `/download?id=${id}`, {
+      responseType: 'blob',
+    });
+
   }
 }

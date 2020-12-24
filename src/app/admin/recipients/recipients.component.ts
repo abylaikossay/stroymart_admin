@@ -82,6 +82,8 @@ export class RecipientsComponent implements OnInit {
     });
     if (!exists) {
       this.chosenCategories.push(category);
+    } else {
+      this.toastService.warning('Категория уже добавлена');
     }
   }
 

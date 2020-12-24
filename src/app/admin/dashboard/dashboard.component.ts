@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
 
   constructor(private reportService: ReportService,
-              private router: Router,
+              private router: Router
   ) {
   }
 
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
       console.log(response);
       response.forEach(element => {
         let days = '';
-        for (let i = 0; i < element.daysOfPublication.length; i++ ) {
+        for (let i = 0; i < element.daysOfPublication.length; i++) {
           if (element.daysOfPublication.length === i + 1) {
             days += ` ${element.daysOfPublication[i]}`;
           } else {

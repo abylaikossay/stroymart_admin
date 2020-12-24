@@ -21,6 +21,7 @@ export class CounterPartiesComponent implements OnInit {
   fileUrl = 'assets/pdf.png';
   id: number;
   report: any;
+
   constructor(private dialogService: NbDialogService,
               public matDialog: MatDialog,
               private activateRoute: ActivatedRoute,
@@ -56,10 +57,11 @@ export class CounterPartiesComponent implements OnInit {
   }
 
   getReport() {
-    this.reportService.getById(this.id).subscribe( data => {
+    this.reportService.getById(this.id).subscribe(data => {
       this.report = data;
     });
   }
+
   getPublications() {
     this.publicationsService.getById(this.id).subscribe(response => {
       console.log(response);
@@ -101,5 +103,42 @@ export class CounterPartiesComponent implements OnInit {
     }, error => {
       console.error(error);
     });
+  }
+
+  download(report: any) {
+    console.log(report);
+    const element = document.getElementById(`download${report.id}`);
+    console.log(element);
+    element.setAttribute('href', environment.apiUrl + `/api/publications/download?id=${report.id}`);
+    //   this.publicationsService.downloadReport(report.id).subscribe( resp => {
+    //     console.log(resp);
+    //   }, error => {
+    //     console.error(error);
+    //   });
+  }
+
+  testDownload(report: any) {
+    console.log(report);
+    this.publicationsService.downloadReport(report.id)
+      .subscribe(x => {
+        console.log(x);
+        const newBlob = new Blob([x], {type: 'application/pdf'});
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(newBlob);
+          return;
+        }
+        const data = window.URL.createObjectURL(newBlob);
+        const link = document.createElement('a');
+        link.href = data;
+        link.download = 'Stroymart.pdf';
+        link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+        console.log(link);
+        setTimeout(function () {
+          window.URL.revokeObjectURL(data);
+          link.remove();
+        }, 100);
+      }, error => {
+        console.error(error);
+      });
   }
 }

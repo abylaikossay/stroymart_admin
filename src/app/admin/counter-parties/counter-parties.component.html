@@ -6,7 +6,7 @@
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell style="width: 105px;" *matCellDef="let report">
       <!--      TODO FILE PATH-->
-      <img src="{{fileUrl }}" alt="" class="table-image">
+      <a class="image-link" id="download{{report.id}}" (click)="testDownload(report)" ><img src="{{fileUrl }}" alt="" class="table-image"></a>
     </td>
   </ng-container>
   <ng-container matColumnDef="createdAt">
